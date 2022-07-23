@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class ParseStrings {
+   public static void main(String[] args) {
+      String userInput = " ";
+	   String firstWord;
+	   String secondWord;
+		int index1 = -1;
+		Scanner scnr = new Scanner(System.in);
+		   
+		   
+		  // below gets input and checks to see if comma is in string
+		  System.out.println("Enter input string: ");
+		  userInput = scnr.nextLine();
+		  index1 = userInput.indexOf(",");
+		   
+			  do { 
+				  
+			   if (userInput == "q") { //checks for exit statement
+		    		  System.exit(0);
+		    	  }
+			   else if(index1 == -1) { // if comma not in string it gets new input
+		    		  System.out.println("Error: No comma in string");
+		    		  System.out.println("Enter input string: ");
+		              userInput = scnr.nextLine();
+		              index1 = userInput.indexOf(",");//returns the index of is substring
+		              
+		    	  }
+			   else {// this takes out white spaces and splits string into two using comma as middle
+		    	   userInput = userInput.replaceAll(" ", "");
+		   
+		    	   String[] parts = userInput.split(",");
+		    	   firstWord = parts[0];
+		    	   secondWord = parts[1]; 
+	            
+	            //this prints the name
+		    	   System.out.println("First word: " + firstWord);
+		    	   System.out.println("Second word: " + secondWord);
+		    	   System.out.println();
+		    	   System.out.println();
+		    	   
+		    	   //this gets new input to continue the loop
+		    	   System.out.println("Enter input string: ");
+		    	   userInput = scnr.nextLine();
+		    	   index1 = userInput.indexOf(",");
+		    	   
+		         
+		    		  
+		    	  }
+		    	  
+		    	  
+			  
+		      } while(!userInput.equals("q"));
+		   
+		      
+		   }
+		}
